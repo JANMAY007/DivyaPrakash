@@ -97,7 +97,7 @@ class YesBankSagmentAdmin(ExportActionMixin, admin.ModelAdmin):
 
 class YesBankAHFLAdmin(ExportActionMixin, admin.ModelAdmin):
     list_display = [field.name for field in YesBankAHFL._meta.get_fields()]
-    list_filter = ('date', 'product_type', 'client_name', 'type_of_service')
+    list_filter = ('date', 'type', 'client_name', 'type_of_service')
     search_fields = [field.name for field in YesBankAHFL._meta.get_fields()]
     list_per_page = 25
 

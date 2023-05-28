@@ -452,7 +452,7 @@ class YesBankAHFL(models.Model):
         ('C', 'certified Copy'),
         ('S', 'Search'),
         ('B', 'BTCheque'),
-        ('TSR', 'AHFL TSR'),
+        ('T', 'AHFL TSR'),
     )
     type = models.CharField(max_length=1, choices=type_choices, default='L')
     price = models.IntegerField(default=1000)
