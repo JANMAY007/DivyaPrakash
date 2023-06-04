@@ -1,9 +1,10 @@
 from django.contrib import admin
 from .models import PersonalDetails, CholaMandalam, Poonawalla, AU, Wonder, Aadhar, Axis, Profectus, RBL, HFFC, AYE,\
-    Mahindra, YesBankAgri, YesBankSagment, YesBankAHFL, IndiaBulls, NewIndia
+    Mahindra, YesBankAgri, YesBankSagment, YesBankAHFL, IndiaBulls, NewIndia, AgriBank
 from .mixin import CholaMandalamAdmin, PoonaWallaAdmin, AUAdmin, WonderAdmin, AadharAdmin, AxisAdmin, ProfectusAdmin,\
     RBLAdmin, HFFCAdmin, AYEAdmin, MahindraAdmin, YesBankAgriAdmin, YesBankSagmentAdmin, YesBankAHFLAdmin,\
     IndiaBullsAdmin, NewIndiaAdmin
+
 
 admin.site.register(PersonalDetails)
 admin.site.register(CholaMandalam, CholaMandalamAdmin)
@@ -22,3 +23,4 @@ admin.site.register(YesBankSagment, YesBankSagmentAdmin)
 admin.site.register(YesBankAHFL, YesBankAHFLAdmin)
 admin.site.register(IndiaBulls, IndiaBullsAdmin)
 admin.site.register(NewIndia, NewIndiaAdmin)
+admin.site.register(AgriBank)

@@ -524,3 +524,17 @@ class NewIndia(models.Model):
 
     def __str__(self):
         return self.company_name + ' - ' + self.company_address
+
+
+class AgriBank(models.Model):
+    class Meta:
+        verbose_name_plural = 'AgriBank'
+
+    company_name = models.CharField(max_length=100, default='Agri Bank')
+    customer_name = models.CharField(max_length=100, default='')
+    village = models.CharField(max_length=100, default='')
+    price = models.PositiveSmallIntegerField(default=1000)
+    object = models.manager
+
+    def __str__(self):
+        return self.company_name + ' - ' + self.customer_name
