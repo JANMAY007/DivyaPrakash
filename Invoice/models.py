@@ -30,7 +30,7 @@ class CholaMandalam(models.Model):
 
     company_name = models.CharField(max_length=100, default='CholaMandalam Investments & Finance Co. Ltd.')
     date = models.DateField(auto_now_add=True)
-    APS_ID = models.CharField(max_length=25)
+    aps_id = models.CharField(max_length=25)
     customer_name = models.CharField(max_length=100)
     property_address = models.CharField(max_length=250)
     type_choices = (
@@ -43,7 +43,7 @@ class CholaMandalam(models.Model):
     )
     type = models.CharField(max_length=1, choices=type_choices)
     search_number = models.CharField(max_length=16)
-    Rm_name = models.CharField(max_length=50)
+    rm_name = models.CharField(max_length=50)
     price = models.IntegerField(default=1000)
     remarks = models.CharField(max_length=250, default='')
     object = models.manager
@@ -58,7 +58,7 @@ class Poonawalla(models.Model):
 
     company_name = models.CharField(max_length=100, default='Poonawalla Housing Finance Limited')
     date = models.DateField(auto_now_add=True)
-    pg_number = models.CharField(max_length=20)
+    loan_application_number = models.CharField(max_length=20)
     name_of_borrower = models.CharField(max_length=100)
     gst_number = models.CharField(max_length=15, default='24AACCG2265N1ZI')
     place_of_supply = models.CharField(max_length=50)
@@ -98,6 +98,7 @@ class AU(models.Model):
     reject_hold = models.BooleanField(default=False)
     customer_name = models.CharField(max_length=100)
     location = models.CharField(max_length=50)
+
     type_choices = (
         ('L', 'legal'),
         ('V', 'vetting'),
@@ -115,6 +116,7 @@ class AU(models.Model):
     department_type = models.CharField(max_length=3, choices=department_types, default='H')
     price = models.IntegerField(default=1000)
     remarks = models.CharField(max_length=250, default='')
+    branch = models.CharField(max_length=12, default='Himmatnagar')
     object = models.manager
 
     def __str__(self):

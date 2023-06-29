@@ -24,7 +24,7 @@ class CholaMandalamAdmin(ExportActionMixin, admin.ModelAdmin):
 
 class PoonaWallaAdmin(ExportActionMixin, admin.ModelAdmin):
     list_display = [field.name for field in Poonawalla._meta.get_fields()]
-    list_filter = ('date', 'pg_number', 'name_of_borrower', 'type')
+    list_filter = ('date', 'loan_application_number', 'name_of_borrower', 'type')
     search_fields = [field.name for field in Poonawalla._meta.get_fields()]
     list_per_page = 25
 
