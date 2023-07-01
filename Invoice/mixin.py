@@ -16,6 +16,12 @@ class CholaMandalamAdmin(ExportActionMixin, admin.ModelAdmin):
     search_fields = [field.name for field in CholaMandalam._meta.get_fields()]
     list_per_page = 25
 
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
+
+
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
             return ['price']

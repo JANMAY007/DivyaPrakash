@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class PersonalDetails(models.Model):
     class Meta:
@@ -47,6 +48,8 @@ class CholaMandalam(models.Model):
     price = models.IntegerField(default=1000)
     remarks = models.CharField(max_length=250, default='')
     object = models.manager
+
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
 
     def __str__(self):
         return self.customer_name + ' - ' + self.property_address
