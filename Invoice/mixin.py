@@ -1,13 +1,8 @@
-from datetime import datetime
-
 from django.contrib import admin
-from django.http import HttpResponse
 from import_export.admin import ExportActionMixin
-
 from media.AU.au_invoice import make_au_invoice
-from .models import CholaMandalam, Poonawalla, AU, Wonder, Aadhar, Axis, Profectus, RBL, HFFC, AYE,\
+from .models import CholaMandalam, Poonawalla, AU, Wonder, Aadhar, Axis, Profectus, RBL, HFFC, AYE, \
     Mahindra, YesBankAgri, YesBankSagment, YesBankAHFL, IndiaBulls, NewIndia
-
 
 
 class CholaMandalamAdmin(ExportActionMixin, admin.ModelAdmin):
@@ -29,7 +24,7 @@ class CholaMandalamAdmin(ExportActionMixin, admin.ModelAdmin):
 
 class PoonaWallaAdmin(ExportActionMixin, admin.ModelAdmin):
     list_display = [field.name for field in Poonawalla._meta.get_fields()]
-    list_filter = ('date', 'loan_application_number', 'name_of_borrower', 'type')
+    list_filter = ('date', 'name_of_borrower', 'type')
     search_fields = [field.name for field in Poonawalla._meta.get_fields()]
     list_per_page = 25
 
