@@ -21,7 +21,6 @@ class CholaMandalamAdmin(ExportActionMixin, admin.ModelAdmin):
             obj.created_by = request.user
         obj.save()
 
-
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
             return ['price']
@@ -34,6 +33,11 @@ class PoonaWallaAdmin(ExportActionMixin, admin.ModelAdmin):
     search_fields = [field.name for field in Poonawalla._meta.get_fields()]
     list_per_page = 25
 
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
+
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
             return ['price']
@@ -45,6 +49,11 @@ class AUAdmin(ExportActionMixin, admin.ModelAdmin):
     list_filter = ('date', 'rlos_number', 'lead_number', 'lan_number', 'type', 'customer_name', 'reject_hold')
     search_fields = [field.name for field in AU._meta.get_fields()]
     list_per_page = 25
+
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
 
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
@@ -69,6 +78,11 @@ class WonderAdmin(ExportActionMixin, admin.ModelAdmin):
     search_fields = [field.name for field in Wonder._meta.get_fields()]
     list_per_page = 25
 
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
+
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
             return ['price']
@@ -80,6 +94,11 @@ class AadharAdmin(ExportActionMixin, admin.ModelAdmin):
     list_filter = ('date', 'customer_name', 'type', 'application_number')
     search_fields = [field.name for field in Aadhar._meta.get_fields()]
     list_per_page = 25
+
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
 
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
@@ -93,6 +112,11 @@ class AxisAdmin(ExportActionMixin, admin.ModelAdmin):
     search_fields = [field.name for field in Axis._meta.get_fields()]
     list_per_page = 25
 
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
+
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
             return ['price']
@@ -104,6 +128,11 @@ class ProfectusAdmin(ExportActionMixin, admin.ModelAdmin):
     list_filter = ('date', 'name_of_applicant', 'type')
     search_fields = [field.name for field in Profectus._meta.get_fields()]
     list_per_page = 25
+
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
 
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
@@ -117,6 +146,11 @@ class RBLAdmin(ExportActionMixin, admin.ModelAdmin):
     search_fields = [field.name for field in RBL._meta.get_fields()]
     list_per_page = 25
 
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
+
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
             return ['price']
@@ -128,6 +162,11 @@ class HFFCAdmin(ExportActionMixin, admin.ModelAdmin):
     list_filter = ('date', 'name_of_applicant', 'type')
     search_fields = [field.name for field in HFFC._meta.get_fields()]
     list_per_page = 25
+
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
 
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
@@ -141,6 +180,11 @@ class AYEAdmin(ExportActionMixin, admin.ModelAdmin):
     search_fields = [field.name for field in AYE._meta.get_fields()]
     list_per_page = 25
 
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
+
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
             return ['price']
@@ -152,6 +196,11 @@ class MahindraAdmin(ExportActionMixin, admin.ModelAdmin):
     list_filter = ('date', 'customer_name', 'type', 'aps_number', 'repost_submitted_date')
     search_fields = [field.name for field in Mahindra._meta.get_fields()]
     list_per_page = 25
+
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
 
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
@@ -165,6 +214,11 @@ class YesBankAgriAdmin(ExportActionMixin, admin.ModelAdmin):
     search_fields = [field.name for field in YesBankAgri._meta.get_fields()]
     list_per_page = 25
 
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
+
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
             return ['price']
@@ -176,6 +230,11 @@ class YesBankSagmentAdmin(ExportActionMixin, admin.ModelAdmin):
     list_filter = ('date', 'product_type', 'type_of_service', 'client_name')
     search_fields = [field.name for field in YesBankSagment._meta.get_fields()]
     list_per_page = 25
+
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
 
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
@@ -189,6 +248,11 @@ class YesBankAHFLAdmin(ExportActionMixin, admin.ModelAdmin):
     search_fields = [field.name for field in YesBankAHFL._meta.get_fields()]
     list_per_page = 25
 
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
+
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
             return ['price']
@@ -201,6 +265,11 @@ class IndiaBullsAdmin(ExportActionMixin, admin.ModelAdmin):
     search_fields = [field.name for field in IndiaBulls._meta.get_fields()]
     list_per_page = 25
 
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
+
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:
             return ['price']
@@ -212,6 +281,11 @@ class NewIndiaAdmin(ExportActionMixin, admin.ModelAdmin):
     list_filter = ('date', 'name_of_party', 'case_number')
     search_fields = [field.name for field in NewIndia._meta.get_fields()]
     list_per_page = 25
+
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        obj.save()
 
     def get_exclude(self, request, obj=None):
         if not request.user.is_superuser:

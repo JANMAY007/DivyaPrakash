@@ -19,6 +19,7 @@ class PersonalDetails(models.Model):
     bank_address = models.CharField(max_length=50)
     letter_head = models.FileField(upload_to='letter_head')
     invoice_number = models.PositiveSmallIntegerField(default=1)
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -47,9 +48,8 @@ class CholaMandalam(models.Model):
     rm_name = models.CharField(max_length=50)
     price = models.IntegerField(default=1000)
     remarks = models.CharField(max_length=250, default='')
-    object = models.manager
-
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    object = models.manager
 
     def __str__(self):
         return self.customer_name + ' - ' + self.property_address
@@ -83,6 +83,7 @@ class Poonawalla(models.Model):
     price = models.IntegerField(default=1000)
     subject_to_reverse_charge = models.BooleanField(default=False)
     remarks = models.CharField(max_length=250, default='')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -120,6 +121,7 @@ class AU(models.Model):
     price = models.IntegerField(default=1000)
     remarks = models.CharField(max_length=250, default='')
     branch = models.CharField(max_length=12, default='Himmatnagar')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -147,6 +149,7 @@ class Wonder(models.Model):
     type = models.CharField(max_length=1, choices=type_choices, default='L')
     price = models.IntegerField(default=1000)
     remarks = models.CharField(max_length=250, default='')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -177,6 +180,7 @@ class Aadhar(models.Model):
     type = models.CharField(max_length=1, choices=type_choices, default='L')
     price = models.IntegerField(default=1000)
     remarks = models.CharField(max_length=250, default='')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -205,6 +209,7 @@ class Axis(models.Model):
     type = models.CharField(max_length=1, choices=type_choices, default='L')
     price = models.IntegerField(default=1000)
     remarks = models.CharField(max_length=250, default='')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -233,6 +238,7 @@ class Profectus(models.Model):
     type = models.CharField(max_length=1, choices=type_choices, default='L')
     price = models.IntegerField(default=1000)
     remarks = models.CharField(max_length=250, default='')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -262,6 +268,7 @@ class RBL(models.Model):
     type = models.CharField(max_length=1, choices=type_choices, default='L')
     price = models.IntegerField(default=1000)
     remarks = models.CharField(max_length=250, default='')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -288,6 +295,7 @@ class HFFC(models.Model):
     type = models.CharField(max_length=1, choices=type_choices, default='L')
     price = models.IntegerField(default=1000)
     remarks = models.CharField(max_length=250, default='')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -314,6 +322,7 @@ class AYE(models.Model):
     type = models.CharField(max_length=1, choices=type_choices, default='L')
     price = models.IntegerField(default=1000)
     remarks = models.CharField(max_length=250, default='')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -345,6 +354,7 @@ class Mahindra(models.Model):
     type = models.CharField(max_length=1, choices=type_choices, default='L')
     price = models.IntegerField(default=1000)
     remarks = models.CharField(max_length=250, default='')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -378,6 +388,7 @@ class YesBankAgri(models.Model):
     price = models.IntegerField(default=1000)
     r_m_fpr_name = models.CharField(max_length=100, default='')
     invoice_status = models.CharField(max_length=20, default='Pending')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -424,6 +435,7 @@ class YesBankSagment(models.Model):
     property_address = models.CharField(max_length=100, default='')
     client_name = models.CharField(max_length=100, default='')
     remarks = models.CharField(max_length=250, default='')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -465,6 +477,7 @@ class YesBankAHFL(models.Model):
     client_name = models.CharField(max_length=100, default='')
     pocket_expense = models.PositiveSmallIntegerField(default=0)
     remarks = models.CharField(max_length=250, default='')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -503,6 +516,7 @@ class IndiaBulls(models.Model):
     customer_name = models.CharField(max_length=100, default='')
     property_address = models.CharField(max_length=150, default='')
     remarks = models.CharField(max_length=250, default='')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -525,6 +539,7 @@ class NewIndia(models.Model):
     travelling_expenses = models.PositiveSmallIntegerField(default=500)
     other_expenses = models.PositiveSmallIntegerField(default=500)
     remarks = models.CharField(max_length=250, default='')
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
@@ -539,6 +554,7 @@ class AgriBank(models.Model):
     customer_name = models.CharField(max_length=100, default='')
     village = models.CharField(max_length=100, default='')
     price = models.PositiveSmallIntegerField(default=1000)
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
     object = models.manager
 
     def __str__(self):
