@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class PersonalDetails(models.Model):
     class Meta:
         verbose_name_plural = 'PersonalDetails'
@@ -20,6 +21,8 @@ class PersonalDetails(models.Model):
     letter_head = models.FileField(upload_to='letter_head', blank=True)
     invoice_number = models.PositiveSmallIntegerField(default=1, blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -49,6 +52,8 @@ class CholaMandalam(models.Model):
     price = models.IntegerField(default=1000, blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -84,6 +89,8 @@ class Poonawalla(models.Model):
     subject_to_reverse_charge = models.BooleanField(default=False, blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False, blank=True)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -121,6 +128,8 @@ class AU(models.Model):
     remarks = models.CharField(max_length=250, default='', blank=True)
     branch = models.CharField(max_length=12, default='Himmatnagar', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -149,10 +158,12 @@ class Wonder(models.Model):
     price = models.IntegerField(default=1000, blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
-        return self.customer_name + ' - ' + self.address_of_property
+        return self.customer_name + ' - ' + self.property_address
 
 
 class Aadhar(models.Model):
@@ -180,6 +191,8 @@ class Aadhar(models.Model):
     price = models.IntegerField(default=1000, blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -209,6 +222,8 @@ class Axis(models.Model):
     price = models.IntegerField(default=1000, blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -238,6 +253,8 @@ class Profectus(models.Model):
     price = models.IntegerField(default=1000, blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -268,6 +285,8 @@ class RBL(models.Model):
     price = models.IntegerField(default=1000, blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -295,10 +314,12 @@ class HFFC(models.Model):
     price = models.IntegerField(default=1000, blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
-        return self.company_name + ' - ' + self.address
+        return self.company_name + ' - ' + self.property_address
 
 
 class AYE(models.Model):
@@ -322,6 +343,8 @@ class AYE(models.Model):
     price = models.IntegerField(default=1000, blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -354,6 +377,8 @@ class Mahindra(models.Model):
     price = models.IntegerField(default=1000, blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -388,6 +413,8 @@ class YesBankAgri(models.Model):
     r_m_fpr_name = models.CharField(max_length=100, default='', blank=True)
     invoice_status = models.CharField(max_length=20, default='Pending', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -435,6 +462,8 @@ class YesBankSagment(models.Model):
     client_name = models.CharField(max_length=100, default='', blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -477,6 +506,8 @@ class YesBankAHFL(models.Model):
     pocket_expense = models.PositiveSmallIntegerField(default=0, blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -516,6 +547,8 @@ class IndiaBulls(models.Model):
     property_address = models.CharField(max_length=150, default='', blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -539,6 +572,8 @@ class NewIndia(models.Model):
     other_expenses = models.PositiveSmallIntegerField(default=500, blank=True)
     remarks = models.CharField(max_length=250, default='', blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
@@ -554,6 +589,8 @@ class AgriBank(models.Model):
     village = models.CharField(max_length=255, default='', blank=True)
     price = models.PositiveSmallIntegerField(default=1000, blank=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, editable=False)
+    checked = models.BooleanField(default=False, blank=True)
+    paid_amount = models.PositiveIntegerField(default=0, blank=True)
     object = models.manager
 
     def __str__(self):
